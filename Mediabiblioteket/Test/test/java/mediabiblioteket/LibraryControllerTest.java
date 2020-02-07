@@ -9,14 +9,14 @@ class LibraryControllerTest {
 LibraryController controller = new LibraryController();
 
     @Test
-    void checkUserInput_() {
+    void checkUserInput_validValue_True() {
 
         boolean test = controller.checkUserInput("bokTitel-1212");
         assertEquals(true, test);
     }
 
     @Test
-    void checkUserInputFalse() {
+    void checkUserInput_invalidCharacter_False() {
 
         Boolean test = controller.checkUserInput("#%¤%%#¤¤&");
         assertEquals(false, test);
@@ -24,12 +24,22 @@ LibraryController controller = new LibraryController();
 
     @Test
     void checkInputOnlyDigits() {
-        Boolean test = controller.checkInputOnlyDigits("121212-1212");
+        Boolean test = controller.checkInputOnlyDigits("121212");
         assertEquals(true, test);
     }
     @Test
     void checkInputOnlyDigitsFalse() {
         Boolean test = controller.checkInputOnlyDigits("bokstav");
+        assertEquals(false, test);
+    }
+    @Test
+    void checkInputOnlyDigitsFalseTecken() {
+        Boolean test = controller.checkInputOnlyDigits("#¤#%#¤&");
+        assertEquals(false, test);
+    }
+    @Test
+    void checkInputOnlyDigitsFalseNull() {
+        Boolean test = controller.checkInputOnlyDigits("");//Hur ska jag få in värdet Null?
         assertEquals(false, test);
     }
     @Test

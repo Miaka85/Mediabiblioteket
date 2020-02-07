@@ -9,19 +9,29 @@ class LibraryControllerTest {
 LibraryController controller = new LibraryController();
 
     @Test
-    void checkUserInput() {
+    void checkUserInput_() {
 
-
-        Boolean test = controller.checkUserInput("700311-8B88");
-
+        boolean test = controller.checkUserInput("bokTitel-1212");
         assertEquals(true, test);
+    }
 
+    @Test
+    void checkUserInputFalse() {
+
+        Boolean test = controller.checkUserInput("#%¤%%#¤¤&");
+        assertEquals(false, test);
     }
 
     @Test
     void checkInputOnlyDigits() {
+        Boolean test = controller.checkInputOnlyDigits("121212-1212");
+        assertEquals(true, test);
     }
-
+    @Test
+    void checkInputOnlyDigitsFalse() {
+        Boolean test = controller.checkInputOnlyDigits("bokstav");
+        assertEquals(false, test);
+    }
     @Test
     void writeToFile() {
     }

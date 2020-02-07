@@ -11,7 +11,7 @@ LibraryController controller = new LibraryController();
     @Test
     void checkUserInput_validValue_True() {
 
-        boolean test = controller.checkUserInput("bokTitel-1212");
+        boolean test = controller.checkUserInput("titel-1212");
         assertEquals(true, test);
     }
 

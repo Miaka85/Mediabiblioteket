@@ -9,39 +9,59 @@ class LibraryControllerTest {
 LibraryController controller = new LibraryController();
 
     @Test
-    void checkUserInput_validValue_True() {
+    void checkUserInput_validValue_true() {
 
-        boolean test = controller.checkUserInput("titel-1212");
+        boolean test = controller.checkUserInput("121212-1212");
         assertEquals(true, test);
     }
 
     @Test
-    void checkUserInput_invalidCharacter_False() {
+    void checkUserInput_validInput_true() {
+
+        boolean test = controller.checkUserInput("Tolvan");
+        assertEquals(true, test);
+    }
+
+    @Test
+    void checkUserInput_invalidCharacter_false() {
 
         Boolean test = controller.checkUserInput("#%¤%%#¤¤&");
         assertEquals(false, test);
     }
 
+    //Testar inmatningen till mediaobjekt
     @Test
-    void checkInputOnlyDigits() {
+    void checkInputOnlyDigits_Digits_True() {
         Boolean test = controller.checkInputOnlyDigits("121212");
         assertEquals(true, test);
     }
     @Test
-    void checkInputOnlyDigitsFalse() {
-        Boolean test = controller.checkInputOnlyDigits("bokstav");
+    void checkInputOnlyDigits_Letters_False() {
+        Boolean test = controller.checkInputOnlyDigits("media");
         assertEquals(false, test);
     }
     @Test
-    void checkInputOnlyDigitsFalseTecken() {
+    void checkInputOnlyDigits_Characters_False() {
         Boolean test = controller.checkInputOnlyDigits("#¤#%#¤&");
         assertEquals(false, test);
     }
+  /*  @Test
+    void checkInputOnlyDigits_Null_False() {
+        Boolean test = controller.checkInputOnlyDigits("null");//Hur ska jag få in värdet Null?
+        assertNull();
+    }*/
     @Test
-    void checkInputOnlyDigitsFalseNull() {
-        Boolean test = controller.checkInputOnlyDigits("");//Hur ska jag få in värdet Null?
+    void checkInputOnlyDigits_MinValue_False() {
+        Boolean test = controller.checkInputOnlyDigits("-2147483649");
         assertEquals(false, test);
     }
+    @Test
+    void checkInputOnlyDigits_MaxValue_False() {
+        Boolean test = controller.checkInputOnlyDigits("2147483648");
+        assertEquals(false, test);
+    }
+
+
     @Test
     void writeToFile() {
     }

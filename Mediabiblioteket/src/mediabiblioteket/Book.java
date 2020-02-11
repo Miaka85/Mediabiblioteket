@@ -6,11 +6,11 @@ public class Book extends Media
 
 	/**
 	 * 
-	 * @param mediaType. Mediatypen
-	 * @param title. Titeln till boken
-	 * @param objectID. Det unika ID:t kopplat till boken
-	 * @param year. Året boken publicerades
-	 * @param author. Författaren till boken
+	 * @param "mediaType. Mediatypen
+	 * @param "title. Titeln till boken
+	 * @param "objectID. Det unika ID:t kopplat till boken
+	 * @param "year. Året boken publicerades
+	 * @param "author. Författaren till boken
 	 */
 	public Book(String mediaType, String title, String objectID, int year, String author)
 	{
@@ -43,7 +43,7 @@ public class Book extends Media
 	
 	/**
 	 * Slå ihop alla attribut för en viss Bok i en sträng
-	 * @return Konkatenerad sträng med all info rörande en viss Bok
+	 * @return Konkatenerad sträng med all info rörande en viss Bok //(syns via knappen info)
 	 */
 	public String listInfo()
 	{

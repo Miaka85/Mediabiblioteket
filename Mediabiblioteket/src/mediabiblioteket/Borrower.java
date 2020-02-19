@@ -7,6 +7,8 @@ package mediabiblioteket;
  */
 public class Borrower
 {
+
+
 	private String name = "";
 	private String ssn;
 	private String phoneNumber;

@@ -18,6 +18,14 @@ import collections.*;
  */
 public class LibraryController
 {
+	public Borrower getCurrentBorrower() {
+		return currentBorrower;
+	}
+
+	public void setCurrentBorrower(Borrower currentBorrower) {
+		this.currentBorrower = currentBorrower;
+	}
+
 	Borrower currentBorrower;
 	GUI theGUI;
 	ArrayList<Media> allMediaObjects;
@@ -29,13 +37,13 @@ public class LibraryController
 	/**
 	 * Konstruktor som ser till att boota systemet med samtliga Media, Borrowers, Borrowed och MediaSearchResults i ArrayList 
 	 */
-	LibraryController()
+	LibraryController(boolean hm)
 	{
 		allMediaObjects = new ArrayList<Media>(24);
 		allBorrowers = new ArrayList<Borrower>();
 		borrowed = new ArrayList<String>();
 		mediaSearchResults = new LinkedList<Media>();
-		boot();
+		if(hm)boot();
 	}
 	
 	/**

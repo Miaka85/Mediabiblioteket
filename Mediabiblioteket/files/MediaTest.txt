@@ -1,0 +1,4 @@
+Bok;111111;Deitel;Java how to program;2005
+Dvd;635492;Nile City 105,6;1994;Robert Gustavsson;Johan Rheborg;Henrik Schyffert
+Bok;874591;Guillou;Vägen till Jerusalem;1999
+Dvd;237729;Time Bandits;1982;John Cleese;Sean Connery

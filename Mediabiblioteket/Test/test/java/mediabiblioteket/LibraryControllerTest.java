@@ -1,5 +1,7 @@
 package mediabiblioteket;
 
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,7 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryControllerTest {
 
-LibraryController controller = new LibraryController();
+    private LibraryController controller;
+
+
+
+@BeforeEach
+ void setUp(){
+
+controller = new LibraryController(true);}
+
+
 
     @Test
     void checkUserInput_validValue_true_MK() {
@@ -93,7 +104,7 @@ LibraryController controller = new LibraryController();
         controller.writeToFile();
     }
 
-   /* @Test
+    @Test
     void test_borrowMedia_checkIfMediaIsBorrowed_trueIfBorrowed_GS() {
         // Skapa testdata
         Book testbok = new Book("Bok","Boktitel", "BokID", 1920, "Hermann Hesse");
@@ -110,11 +121,11 @@ LibraryController controller = new LibraryController();
         controller.borrowed.removeLast();
         controller.writeToFile();
 
-    }*/
+    }
 
 
-   // @Test
-  /*  void test_returnMedia_checkIfMediaReturnedAfterBorrowed_falseBorrowedIfReturned_GS() {
+    @Test
+    void test_returnMedia_checkIfMediaReturnedAfterBorrowed_falseBorrowedIfReturned_GS() {
         // Skapa testdata, bok och låntagare
         Book testbok = new Book("Bok","Boktitel", "BokID", 1920, "Hermann Hesse");
         Borrower testB= new Borrower("testnamn", "121212-1212", "0700900909");
@@ -130,7 +141,7 @@ LibraryController controller = new LibraryController();
         // Rensa bort inskriven testdata
         //libraryController.borrowed.removeLast();
         //libraryController.writeToFile();
-    }*/
+    }
 
     @Test
     void test_checkIfBorrowerExist_invalidBorrower_false_MK() {
@@ -147,8 +158,6 @@ LibraryController controller = new LibraryController();
 
         assertTrue(borrowerResult);
     }
-
-
 
 
     @Test
@@ -168,7 +177,18 @@ LibraryController controller = new LibraryController();
     }
 
     @Test
-    void getMediaFromSearchResult() {
+    void getMediaFromSearchResult_validMedia_MK() {
+
+            GUI gui = new GUI();
+        LibraryController test = new LibraryController(gui);
+        test.searchMediaAllByString("DVD");
+        String searchString = "DVD - Free\n - The office - 2002 - Ricky Gervais - Martin Freeman - Meckenzie Crook - Lucy Davis";
+        Media searchResult = test.getMediaFromSearchResult(searchString);
+
+
+        assertEquals(searchResult.getTitle(),"The office");
+
+
     }
 
     @Test

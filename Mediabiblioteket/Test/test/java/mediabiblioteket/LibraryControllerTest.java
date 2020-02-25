@@ -197,6 +197,13 @@ controller = new LibraryController(true);}
 
     @Test
     void getBorrower() {
+
+        GUI gui = new GUI();
+        LibraryController test = new LibraryController(gui);
+        Borrower searchResult = test.getBorrower("681102-9999");
+
+        assertEquals(searchResult.getSsn(),"681102-9999");
+
     }
 
     @Test

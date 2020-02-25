@@ -24,7 +24,6 @@ class MediaTest {
     }
 
 
-
     @Test
     void getMediaType_test_MK() {
         assertEquals("Book", mediaBook.getMediaType());
@@ -38,18 +37,6 @@ class MediaTest {
         assertNotEquals("Old DVD", mediaDVD.getMediaType());
     }
 
-    @Test
-    void testSetMediaTypeInvalidInput_KP() {
-
-        mediaBook.setMediaType("");
-        assertEquals("Book", mediaBook.getMediaType());
-        mediaBook.setMediaType("12332");
-        assertEquals("Book", mediaBook.getMediaType());
-        mediaBook.setMediaType(null);
-        assertEquals("Book", mediaBook.getMediaType());
-        mediaBook.setMediaType("%#");
-        assertEquals("Book", mediaBook.getMediaType());
-    }
 
     @Test
     void getTitle_test_MK() {
@@ -67,7 +54,6 @@ class MediaTest {
     void getObjectID_test_MK() {
         assertEquals("10", mediaBook.getObjectID());
         assertNotEquals("10", mediaDVD.getObjectID());
-
     }
 
     @Test
@@ -77,11 +63,15 @@ class MediaTest {
     }
 
     @Test
-    void getYear() {
+    void getYear_test_MK() {
+        assertEquals(2020, mediaBook.getYear());
+        assertNotEquals(2020 , mediaDVD.getYear());
     }
 
     @Test
-    void setYear() {
+    void setYear_test_MK() {
+        mediaBook.setYear(2018);
+        assertEquals(2018, mediaBook.getYear());
     }
 
     @Test

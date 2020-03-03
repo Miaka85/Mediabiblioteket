@@ -11,16 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class LibraryControllerTest {
 
     private LibraryController controller;
-
-
+    private Book testbok;
+    private Borrower testB;
 
 @BeforeEach
- void setUp(){
+ void setUp() {
 
-controller = new LibraryController(true);}
+    controller = new LibraryController(true);
 
+    testbok = new Book("Bok", "Boktitel", "BokID", 1920, "Hermann Hesse");
+    testB = new Borrower("testnamn", "121212-1212", "0700900909");
 
-
+}
     @Test
     void checkUserInput_validValue_true_MK() {
 
@@ -107,8 +109,8 @@ controller = new LibraryController(true);}
     @Test
     void test_borrowMedia_checkIfMediaIsBorrowed_trueIfBorrowed_GS() {
         // Skapa testdata
-        Book testbok = new Book("Bok","Boktitel", "BokID", 1920, "Hermann Hesse");
-        Borrower testB= new Borrower("testnamn", "121212-1212", "0700900909");
+      //  Book testbok = new Book("Bok","Boktitel", "BokID", 1920, "Hermann Hesse");
+      //  Borrower testB= new Borrower("testnamn", "121212-1212", "0700900909");
 
         // Registrera testboken som utlånad till testanvändaren
         controller.setCurrentBorrower(testB);
@@ -127,8 +129,8 @@ controller = new LibraryController(true);}
     @Test
     void test_returnMedia_checkIfMediaReturnedAfterBorrowed_falseBorrowedIfReturned_GS() {
         // Skapa testdata, bok och låntagare
-        Book testbok = new Book("Bok","Boktitel", "BokID", 1920, "Hermann Hesse");
-        Borrower testB= new Borrower("testnamn", "121212-1212", "0700900909");
+       // Book testbok = new Book("Bok","Boktitel", "BokID", 1920, "Hermann Hesse");
+      //  Borrower testB= new Borrower("testnamn", "121212-1212", "0700900909");
 
         // Registrera testboken som utlånad till testanvändaren
         controller.setCurrentBorrower(testB);
@@ -146,14 +148,14 @@ controller = new LibraryController(true);}
     @Test
     void test_checkIfBorrowerExist_invalidBorrower_false_MK() {
 
-        String userID = "121212-1212";
+        String userID = "1111111-1111";
         Boolean borrowerResult = controller.checkIfBorrowerExist(userID);
 
         assertFalse(borrowerResult);
     }
     @Test
     void checkIfBorrowerExist_validBorrower_true_MK(){
-        String userID = "900118-5555";
+        String userID = "121212-1212";
         Boolean borrowerResult = controller.checkIfBorrowerExist(userID);
 
         assertTrue(borrowerResult);
@@ -196,13 +198,13 @@ controller = new LibraryController(true);}
     }
 
     @Test
-    void getBorrower() {
+    void getBorrower_Test_MK() {
 
-        GUI gui = new GUI();
-        LibraryController test = new LibraryController(gui);
-        Borrower searchResult = test.getBorrower("681102-9999");
+       // GUI gui = new GUI();
+        //LibraryController test = new LibraryController();
+        Borrower searchResult = controller.getBorrower("121212-1212");
 
-        assertEquals(searchResult.getSsn(),"681102-9999");
+        assertEquals(searchResult.getName(),"Tolvan Tolvanson");
 
     }
 

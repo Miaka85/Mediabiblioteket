@@ -108,9 +108,6 @@ class LibraryControllerTest {
 
     @Test
     void test_borrowMedia_checkIfMediaIsBorrowed_trueIfBorrowed_GS() {
-        // Skapa testdata
-      //  Book testbok = new Book("Bok","Boktitel", "BokID", 1920, "Hermann Hesse");
-      //  Borrower testB= new Borrower("testnamn", "121212-1212", "0700900909");
 
         // Registrera testboken som utlånad till testanvändaren
         controller.setCurrentBorrower(testB);
@@ -128,9 +125,6 @@ class LibraryControllerTest {
 
     @Test
     void test_returnMedia_checkIfMediaReturnedAfterBorrowed_falseBorrowedIfReturned_GS() {
-        // Skapa testdata, bok och låntagare
-       // Book testbok = new Book("Bok","Boktitel", "BokID", 1920, "Hermann Hesse");
-      //  Borrower testB= new Borrower("testnamn", "121212-1212", "0700900909");
 
         // Registrera testboken som utlånad till testanvändaren
         controller.setCurrentBorrower(testB);
@@ -140,9 +134,6 @@ class LibraryControllerTest {
         // Verifiera att testboken är utlånad
         assertFalse(testbok.borrowed);
 
-        // Rensa bort inskriven testdata
-        //libraryController.borrowed.removeLast();
-        //libraryController.writeToFile();
     }
 
     @Test
